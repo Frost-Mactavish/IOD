@@ -1,0 +1,47 @@
+EXP_DIR: res101
+TRAIN:
+  OPTIMIZER: sgd
+  LEARNING_RATE: 0.001
+  MAX_EPOCH: 10
+  LEARNING_RATE_DECAY_STEP: 8
+  LEARNING_RATE_DECAY_GAMMA: 0.2
+  HAS_RPN: True
+  RPN_BATCHSIZE: 256
+  BBOX_NORMALIZE_TARGETS_PRECOMPUTED: True
+  RPN_POSITIVE_OVERLAP: 0.7
+  PROPOSAL_METHOD: gt
+  BG_THRESH_LO: 0.0
+  DISPLAY: 20
+  WEIGHT_DECAY: 0.0001
+  DOUBLE_BIAS: False
+TEST:
+  HAS_RPN: True
+POOLING_SIZE: 7
+POOLING_MODE: align
+CROP_RESIZE_WITH_MAX_POOL: False
+ANCHOR_SCALES: [8, 16, 32]
+ANCHOR_RATIOS: [0.5, 1, 2]
+MAX_NUM_GT_BOXES: 20
+CLASSES: ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle',
+          'bus', 'car', 'cat', 'chair', 'cow',
+          'diningtable', 'dog', 'horse', 'motorbike', 'person',
+          'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
+CIOD:
+  GROUPS: 4
+  LEARNING_RATE_INIT_DISTILL: 1.
+  LOSS_SCALE_DISTILL: 2.
+  DISTILL_GROUP: False
+  DISTILL_BACKGROUND: False
+  DISTILL_BOUNDINGBOX: False
+  SWITCH_DO_IN_RPN: True
+  SWITCH_DO_IN_FRCN: True
+  SWITCH_FREEZE_BASE_NET: False
+  SWITCH_FREEZE_RPN_CLASSIFIER: True
+  RPN_CLS_LOSS_SCALE_FEATURE: 0.25
+  TEMPERATURE: 2.
+  DISTILL_METHOD: kldiv
+  REPRESENTATION: True
+  REMEMBER_PROTO: False
+  REMEMBER_BG: False
+  TOTAL_PROTO: 200
+  RANDOM_EM: False
